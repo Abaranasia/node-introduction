@@ -1,9 +1,12 @@
-const fs = require('fs');
-const argv = require('yargs').argv;
+require('colors');
+const argv = require('./config/yargs');
+
 const { nWriteFile } = require('./helpers/fileFunctions');
 
-const { a, b } = argv;
+const { b, l } = argv;
 
-nWriteFile(a, b)
-    .then(filename => console.log(`The file ${filename} has been succesfully created`))
-    .catch(err => console.log(`Ah error happened ${err} :(`))
+console.clear();
+
+nWriteFile(b, l)
+    .then(filename => console.log(`The file ${filename} has been succesfully created`.green))
+    .catch(err => console.log(`Ah error happened ${err} :(`.red))
